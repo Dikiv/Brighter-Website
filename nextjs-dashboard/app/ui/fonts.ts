@@ -11,5 +11,6 @@ export const inter = Inter({ subsets: ['latin'] });
 
 export const oswald = Oswald({
     subsets: ['latin'],
-    weight: ['400', '700']
+    weight: ['400', '700'],
+    
 });

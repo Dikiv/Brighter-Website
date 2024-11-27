@@ -14,18 +14,18 @@ export function Header() {
         </div>
       
         {/* Header Links Box */}
-        <div className="w-[400px] bg-gray-900  border-2 border-yellow-500 p-4 shadow-md">
+        <div className={`${oswald.className} bg-gray-900  border-2 border-yellow-300 p-4 shadow-md"`}>
           <div className=" flex justify-center">
-            <a href="#section1" className="px-4 py-2 text-yellow-500 hover:text-yellow-300 custom-text-size">
+            <a href="#section1" className="px-4 py-2 text-yellow-300 hover:text-yellow-500 ">
             Home
             </a>
-            <a href="#section2" className="px-4 py-2 text-yellow-500 hover:text-yellow-300 custom-text-size">
+            <a href="#section2" className="px-4 py-2 text-yellow-300 hover:text-yellow-500 ">
             Works
             </a>
-            <a href="#section3" className="px-4 py-2 text-yellow-500 hover:text-yellow-300 custom-text-size">
+            <a href="#section3" className="px-4 py-2 text-yellow-300 hover:text-yellow-500 ">
             Reviews
             </a>
-            <a href="#section4" className="px-4 py-2 text-yellow-500 hover:text-yellow-300 custom-text-size">
+            <a href="#section4" className="px-4 py-2 text-yellow-300 hover:text-yellow-500 ">
             About
             </a>
         </div>
@@ -33,7 +33,7 @@ export function Header() {
       
         {/* Right-Aligned Section */}
         <div className="flex items-center">
-          <button className="px-4 py-2 bg-yellow-500 text-gray-900 rounded hover:bg-yellow-400">
+          <button className="px-4 py-2 bg-yellow-500 text-gray-900  hover:bg-yellow-400">
             tmp
           </button>
         </div>
