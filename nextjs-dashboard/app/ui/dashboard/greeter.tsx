@@ -6,7 +6,7 @@ export function Greeter() {
             style={{ backgroundImage: `url(${chad})` }}
         >
             {/* Shading */}
-            <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
+            <div className="absolute inset-x-0 bottom-0 h-5 bg-gradient-to-t from-black to-transparent"></div>
             {/* Text */}
             <p className="relative z-30 text-white text-large font-bold">Bottom text</p>
         </div>

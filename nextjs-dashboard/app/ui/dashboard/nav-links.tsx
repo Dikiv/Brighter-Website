@@ -36,7 +36,7 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              'flex items-center space-x-2 px-4 py-2 rounded-md transition-all',
+              'flex items-center space-x-2 px-4 py-2  transition-all',
               {
                 'text-gray-900 bg-yellow-300': isActive, // Highlight 
                 'text-yellow-300 hover:text-yellow-500': !isActive, // Default 

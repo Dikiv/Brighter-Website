@@ -18,6 +18,9 @@ const config: Config = {
           600: '#2F6FEB',
         },
       },
+      screens: {
+        'xl-custom': '1400px', // Define a custom breakpoint
+      },
     },
     keyframes: {
       shimmer: {

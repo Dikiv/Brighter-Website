@@ -27,25 +27,27 @@ export default function Page() {
 
                 {/* Text Section */}
                 <div className="flex-1 p-6 flex flex-col">
-                <h2 className="text-2xl font-bold text-yellow-300 mb-4">Who Am I?</h2>
-                <p className="text-lg text-gray-300">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-yellow-300 mb-4">
+                    Who Am I?
+                    </h2>
+                    <p className="text-lg md:text-xl lg:text-2xl text-gray-300">
                     I’m Chris, and I might be a software engineer, but maybe I'm not? I’ve
                     written some code, but it could be anything, really—probably just
                     numbers, or words, or maybe neither. I sometimes open Visual Studio or
                     whatever, and things happen. I sometimes think about programming while
                     playing video games, so maybe that counts? Sometimes I write code, but it
                     might not actually work, and I’m okay with that... usually.
-                </p>
+                    </p>
                 </div>
                 </div>
-                
+
                 {/* Card 2 */}
-                <div className={`${oswald.className} flex flex-col md:flex-row w-4/5 bg-gray-900 shadow-lg border border-yellow-300 overflow-hidden`}
+                <div className={`${oswald.className} flex flex-col md:flex-row w-4/5 bg-gray-800 shadow-lg border border-yellow-300 overflow-hidden`}
                 >
                     {/* Text Section */}
                     <div className="flex-1 p-6">
-                        <h2 className="text-2xl font-bold text-yellow-300 mb-4">What can I do?</h2>
-                        <p className="text-lg text-gray-300">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-yellow-300 mb-4">What can I do?</h2>
+                        <p className="text-lg md:text-xl lg:text-2xl text-gray-300">
                         I can code, I think? Well, I’ve done stuff with Python, but sometimes I forget what it's for,
                         and it just looks like fancy text on the screen. I know C#, or at least I’ve heard of it,
                         but I mainly type it out and hope the computer does the rest. 
@@ -77,14 +79,15 @@ export default function Page() {
                 </div>
                     {/* Text Section */}
                     <div className="flex-1 p-6">
-                        <h2 className="text-2xl font-bold text-yellow-300 mb-4">What is this website?</h2>
-                        <p className="text-lg text-gray-300">
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-yellow-300 mb-4">What is this website?</h2>
+                        <p className="text-lg md:text-xl lg:text-2xl text-gray-300">
+
                         This website is my portfolio, I think? It’s mostly a lot of text and broken links, 
                         which is kind of like an interactive README file.
                            Oh, and the images? They’re probably served via SQL, so they should load instantly,
                             I think. The main thing is that it’s definitely mobile-first,
                              even though I forgot to test it on mobile. 
-                        But, you know, it works on my laptop, so it’s good enough.
+                        But, you know, it works on my laptop, so it must be good enough.
                         </p>
                     </div>
                 </div>
