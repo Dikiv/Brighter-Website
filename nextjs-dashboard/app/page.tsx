@@ -11,14 +11,12 @@ import {Footer} from '@/app/ui/dashboard/footer'
 export default function Page() {
   return (
     
-    <main className="bg-zinc-900 flex min-h-screen flex-col ">
-      <Header/>
+    <main className="flex min-h-screen flex-col ">
       
       <div className="flex grow p-8">
         <Greeter/>
       </div>
 
-      <Footer/>      
     </main>
   );
 }

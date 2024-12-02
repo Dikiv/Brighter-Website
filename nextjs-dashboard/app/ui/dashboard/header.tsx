@@ -1,4 +1,5 @@
 import { oswald } from '@/app/ui/fonts';
+import NavLinks from '@/app/ui/dashboard/nav-links';
 
 export function Header() {
     return (
@@ -16,18 +17,7 @@ export function Header() {
         {/* Header Links Box */}
         <div className={`${oswald.className} bg-gray-900  border-2 border-yellow-300 p-4 shadow-md"`}>
           <div className=" flex justify-center">
-            <a href="#section1" className="px-4 py-2 text-yellow-300 hover:text-yellow-500 ">
-            Home
-            </a>
-            <a href="#section2" className="px-4 py-2 text-yellow-300 hover:text-yellow-500 ">
-            Works
-            </a>
-            <a href="#section3" className="px-4 py-2 text-yellow-300 hover:text-yellow-500 ">
-            Reviews
-            </a>
-            <a href="#section4" className="px-4 py-2 text-yellow-300 hover:text-yellow-500 ">
-            About
-            </a>
+          <NavLinks/>
         </div>
         </div>
       
