@@ -5,10 +5,14 @@ export function Footer() {
     return (
         <div className={`${oswald.className} h-30 bg-gray-900 border-t-2 border-yellow-300 p-4 shadow-md`}>
     <div className="flex justify-between items-center h-full">
-        {/* Left side content (About Us) */}
-        <div className="text-white">
-            <h3 className="font-semibold text-lg">About Us</h3>
-            <p>Learn more</p>
+        {/* Left side content */}
+        <div className="text-yellow-300 ">
+            {/*Consider making a hidden  feature when pressing the icon */}
+            <a className="flex items-center space-x-3">
+            <img src="svgIcons/mycon.svg" alt="MyIcon" className="h-6 w-6" />
+            <p>Christopher Ryder</p>
+            </a>
+
         </div>
 
         {/* Right side content (Icons) */}

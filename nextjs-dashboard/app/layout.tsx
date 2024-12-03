@@ -2,6 +2,7 @@ import '@/app/ui/global.css'
 import { inter } from '@/app/ui/fonts';
 import {Header} from '@/app/ui/dashboard/header'
 import {Footer} from '@/app/ui/dashboard/footer'
+import { oswald } from '@/app/ui/fonts';
 
 export default function RootLayout({
   children,
@@ -11,7 +12,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       
-      <body className={`${inter.className} text-xl text-gray-800 bg-zinc-900 md:text-3xl md:leading-normal`}>
+      <body className={`${oswald.className} text-xl text-gray-800 bg-zinc-900 md:text-3xl md:leading-normal`}>
       <Header/>
       {children}
       <Footer/>

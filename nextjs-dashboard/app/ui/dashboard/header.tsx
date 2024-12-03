@@ -8,7 +8,7 @@ export function Header() {
         {/* Logo Section */}
         <div className="flex items-center">
           <img
-            src="logo.png"
+            src="img/americano.jpg"
             alt="Logo"
             className="h-10 w-10 mr-2"
           />
