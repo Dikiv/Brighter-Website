@@ -37,8 +37,9 @@ export default async function Page() {
                 </button>
             </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 w-3/4">
-
+        
+        
+        <div className="columns-sm space-y-3 gap-4 mx-auto mt-8 w-3/4 ">
         <Reviewcard/>
         </div>
     </div>

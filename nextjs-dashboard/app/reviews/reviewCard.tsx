@@ -1,8 +1,10 @@
 import supabase from '../lib/utils'
-  
+//import { useState } from "react";
+import ReviewImage from '../reviews/reviewImage'
 export default async function Reviewcard() {
     
-    const { data: Reviews, error } = await supabase.from("Reviews").select("Title, Score, ReleaseYear, Genre");
+    const { data: Reviews, error } = await supabase.from("Reviews").select("id, Title, Score, ReleaseYear, Genre");
+      
 
     if (error) {
         console.error("Error fetching reviews:", error.message);
@@ -14,8 +16,9 @@ export default async function Reviewcard() {
     }
 
     return Reviews?.map((review) => (
-
-        <div className="flex sm:flex-row bg-gradient-to-b from-gray-800 to-black shadow-md w-full">
+        
+      <div className="flex flex-col sm:flex-row bg-gradient-to-b from-gray-800 to-black shadow-md w-full ">
+      
         {/* Text Content */}
         <div className="flex flex-col justify-between sm:w-2/3 w-full p-4">
           <h2 className="text-xl font-semibold mb-2">{review.Genre}</h2>
@@ -25,14 +28,12 @@ export default async function Reviewcard() {
         </div>
       
         {/* Image */}
-        <div className="sm:w-1/3 w-full">
-          <img
-            src="img/americano.jpg"
-            alt="Game Image"
-            className="object-cover w-full h-full"
+        <ReviewImage
+            id={`${review.id}.png`}
           />
         </div>
-      </div>
+ 
+      
       
 
       ))
