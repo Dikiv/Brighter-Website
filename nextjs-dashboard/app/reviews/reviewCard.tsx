@@ -1,10 +1,11 @@
 import supabase from '../lib/utils'
 //import { useState } from "react";
 import ReviewImage from '../reviews/reviewImage'
-export default async function Reviewcard() {
+
+
+const Reviewcard = async ({query}:{query:string}) => {
     
     const { data: Reviews, error } = await supabase.from("Reviews").select("id, Title, Score, ReleaseYear, Genre");
-      
 
     if (error) {
         console.error("Error fetching reviews:", error.message);
@@ -14,11 +15,22 @@ export default async function Reviewcard() {
     if (!Reviews || Reviews.length === 0) {
         return <p>No reviews available.</p>;
     }
+    
+    const filtered = Array.isArray(Reviews) ? Reviews.filter((r) => { 
+      return typeof r?.Title === "string" &&
+      typeof query === "string" &&
+      (r.Title.toLowerCase().includes(query.toLowerCase()));
+    }).slice(0,50) : []
 
-    return Reviews?.map((review) => (
+    return( 
+      <div>
+      {Array.isArray(filtered) && filtered?.length === 0 && (
+      <h2 className='text-center text-4xl'>no reviews for '{query?.toLowerCase()}' was found</h2>
+      )}
+
+      {Array.isArray(Reviews) && filtered?.map((review) => (
         
-      <div className="flex flex-col sm:flex-row bg-gradient-to-b from-gray-800 to-black shadow-md w-full ">
-      
+      <div className="flex flex-col sm:flex-row bg-gradient-to-b from-gray-800 to-black shadow-md w-full" key={review.id + review.Title}>
         {/* Text Content */}
         <div className="flex flex-col justify-between sm:w-2/3 w-full p-4">
           <h2 className="text-xl font-semibold mb-2">{review.Genre}</h2>
@@ -32,10 +44,11 @@ export default async function Reviewcard() {
             id={`${review.id}.png`}
           />
         </div>
- 
       
+      ))} 
+    </div>
       
 
-      ))
+)}
 
-}
+export default Reviewcard
