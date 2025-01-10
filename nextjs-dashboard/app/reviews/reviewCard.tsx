@@ -20,7 +20,7 @@ const Reviewcard = async ({query}:{query:string}) => {
       return typeof r?.Title === "string" &&
       typeof query === "string" &&
       (r.Title.toLowerCase().includes(query.toLowerCase()));
-    }).slice(0,50) : []
+    }) : []
 
     return( 
       <div>
