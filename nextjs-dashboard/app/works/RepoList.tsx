@@ -10,7 +10,7 @@ type RepoListProps = {
   initialRepos: Repository[]
 }
 
-const NUMBER_OF_REPOS_TO_FETCH = 4
+const NUMBER_OF_REPOS_TO_FETCH = 10
 
 export default function RepoList({ initialRepos }: RepoListProps) {
     const [offset, setOffset] = useState(NUMBER_OF_REPOS_TO_FETCH)
@@ -32,7 +32,8 @@ export default function RepoList({ initialRepos }: RepoListProps) {
     
     if(Array.isArray(repos)){
     return (
-    <div className='content-start flex-col gap-3'>
+      
+      <div className="columns-sm space-y-3 gap-2 mx-auto mt-8 w-3/4 ">
       {
       repos.map(rep => (
         <RepoCard key={rep.id + rep.created_at} repo={rep} />
