@@ -30,7 +30,7 @@ const Reviewcard = async ({query}:{query:string}) => {
 
       {Array.isArray(Reviews) && filtered?.map((review) => (
         
-      <div className="flex flex-col sm:flex-row bg-gradient-to-b from-gray-800 to-black shadow-md w-full" key={review.id + review.Title}>
+      <div className="flex flex-col sm:flex-row bg-gradient-to-b from-gray-800 to-black shadow-md w-full border-yellow-600 border-2  mb-2" key={review.id + review.Title}>
         {/* Text Content */}
         <div className="flex flex-col justify-between sm:w-2/3 w-full p-4">
           <h2 className="text-xl font-semibold mb-2">{review.Genre}</h2>

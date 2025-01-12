@@ -9,7 +9,7 @@ export default function UserCard({ repo }: RepoProps) {
 
   return (
     <a onClick={()=>window.open(repoURL)}>
-    <div className='flex-initial sm:flex-row bg-blue-900 bg-gradient-to-b from-gray-800 border-yellow-700 hover:border-yellow-500 to-black border-2 mb-6 p-3'>
+    <div className='flex-initial sm:flex-row bg-blue-900 bg-gradient-to-b from-gray-800 border-yellow-700 hover:border-yellow-500 to-black border-2 mb-3 p-3'>
       <div className=''>{repo.name}</div>
       <hr className=" border-yellow-300 mb-4" />
       <div></div>
