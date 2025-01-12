@@ -33,7 +33,7 @@ export default function RepoList({ initialRepos }: RepoListProps) {
     if(Array.isArray(repos)){
     return (
       
-      <div className="columns-sm space-y-3 gap-2 mx-auto mt-8 w-3/4 ">
+      <div className="columns-sm space-y-3 gap-2 mx-auto mt-8 w-4/5 ">
       {
       repos.map(rep => (
         <RepoCard key={rep.id + rep.created_at} repo={rep} />
