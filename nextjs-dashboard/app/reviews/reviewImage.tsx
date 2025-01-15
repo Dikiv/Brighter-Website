@@ -12,7 +12,8 @@ export default async function ReviewImage({ id }: { id: string }) {
 
     return (
         
-        <div className="sm:w-1/3 w-full">
+      <div className="w-full">
+
           <img
             src={imageUrl}
             //"img/americano.jpg"
@@ -20,11 +21,8 @@ export default async function ReviewImage({ id }: { id: string }) {
             className="object-cover w-full h-full"
            
           />
-        </div>
+      </div>
  
-      
-      
-
       )
 
 }
