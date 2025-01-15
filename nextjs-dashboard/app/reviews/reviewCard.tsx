@@ -1,5 +1,4 @@
 import supabase from '../lib/utils'
-//import { useState } from "react";
 import ReviewImage from '../reviews/reviewImage'
 
 
@@ -29,22 +28,35 @@ const Reviewcard = async ({query}:{query:string}) => {
       )}
 
       {Array.isArray(Reviews) && filtered?.map((review) => (
+  
+      <div
+      className={`flex flex-col bg-gradient-to-b from-gray-800 to-black shadow-md 
+        w-3/7 border-yellow-600 border mb-2  
+        break-inside-avoid-column group`}
+       key={review.id + review.Title} 
+      >
         
-      <div className="flex flex-col sm:flex-row bg-gradient-to-b from-gray-800 to-black shadow-md w-full border-yellow-600 border-2  mb-2" key={review.id + review.Title}>
+        <div className="relative">
+        <ReviewImage
+            id={review.id + '.png'}
+        />
+
+        {/* gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-700/50 to-black/80 
+        transition-opacity duration-700 group-hover:opacity-0"/>
         {/* Text Content */}
-        <div className="flex flex-col justify-between sm:w-2/3 w-full p-4">
-          <h2 className="text-xl font-semibold mb-2">{review.Genre}</h2>
-          <h1 className="text-5xl font-bold mb-4">{review.Title}</h1>
+        <div className="absolute inset-0 flex flex-col justify-end p-4 
+        transition-opacity duration-700 group-hover:opacity-0">
+        <h2 className="text-sm mb-2">{review.Genre}</h2>
+          <h1 className="text-2xl font-bold mb-4 break-words">{review.Title}</h1>
           <h3 className="text-lg mb-2">{review.ReleaseYear}</h3>
           <p className="text-4xl mb-2">{review.Score}/10</p>
         </div>
-      
-        {/* Image */}
-        <ReviewImage
-            id={`${review.id}.png`}
-          />
+      </div>
+
         </div>
-      
+        
+
       ))} 
     </div>
       

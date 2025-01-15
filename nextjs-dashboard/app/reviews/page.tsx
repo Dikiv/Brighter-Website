@@ -15,8 +15,13 @@ const Page = async({
     return (
         
     <div className="flex grow p-8 items-center justify-center flex-col">
-        <h1 className={`${oswald.className} text-center text-yellow-300 text-6xl leading-tight mb-4`}>
+        <h1 className={`text-center text-yellow-300 text-6xl leading-tight mb-4`}>
             My Reviews
+        </h1>
+        <hr className="w-1/2 border-yellow-300 mb-4" />
+        
+        <h1 className={`text-center text-yellow-300 text-2xl leading-tight mb-4`}>
+            Here's some games I've played and some I've enjoyed
         </h1>
         <hr className="w-1/2 border-yellow-300 mb-4" />
 
@@ -39,7 +44,9 @@ const Page = async({
         </div>
         
         
-        <div className="columns-sm space-y-3 gap-4 mx-auto mt-8 w-3/4 ">
+        <div className="columns-1 sm:columns-2 md:columns-3 
+        lg:columns-4 xl:columns-6 mx-auto 
+        gap-2 mt-8 w-3/4 break-before-column">
         <Reviewcard
         query = {query}
         />
