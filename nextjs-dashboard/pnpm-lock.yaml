@@ -57,6 +57,9 @@ importers:
       react-query:
         specifier: ^3.39.3
         version: 3.39.3(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013)
+      sort-by-typescript:
+        specifier: ^1.2.5
+        version: 1.2.5
       tailwindcss:
         specifier: 3.4.4
         version: 3.4.4
@@ -1076,6 +1079,9 @@ packages:
 
   simple-swizzle@0.2.2:
     resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
+
+  sort-by-typescript@1.2.5:
+    resolution: {integrity: sha512-zb0ksnSjtH59H1e4yKSQhrXjMtBDMnZvG8N9lS4qoysRdXxSr9EukxCE11ZU2HpfA2rqd2tT9Hkm2VHyw7sZgA==}
 
   source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
@@ -2171,6 +2177,8 @@ snapshots:
     dependencies:
       is-arrayish: 0.3.2
     optional: true
+
+  sort-by-typescript@1.2.5: {}
 
   source-map-js@1.2.0: {}
 

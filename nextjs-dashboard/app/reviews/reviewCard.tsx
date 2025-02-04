@@ -1,10 +1,12 @@
 import supabase from '../lib/utils'
 import ReviewImage from '../reviews/reviewImage'
+import { sortBy } from 'sort-by-typescript';
 
 
-const Reviewcard = async ({query}:{query:string}) => {
+const Reviewcard = async ({query,sort,order}:{query:string,sort:string,order:string}) => {
     
     const { data: Reviews, error } = await supabase.from("Reviews").select("id, Title, Score, ReleaseYear, Genre");
+    
 
     if (error) {
         console.error("Error fetching reviews:", error.message);
@@ -19,10 +21,14 @@ const Reviewcard = async ({query}:{query:string}) => {
       return typeof r?.Title === "string" &&
       typeof query === "string" &&
       (r.Title.toLowerCase().includes(query.toLowerCase()));
-    }) : []
+    }).sort(sortBy(sort)) : []
+
+    if(order=='d'){
+      filtered.reverse()
+    }
 
     return( 
-      <div>
+      <div className="grid grid-cols-8 gap-4">
       {Array.isArray(filtered) && filtered?.length === 0 && (
       <h2 className='text-center text-4xl'>no reviews for '{query?.toLowerCase()}' was found</h2>
       )}
