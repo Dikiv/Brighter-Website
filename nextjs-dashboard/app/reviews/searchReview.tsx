@@ -29,7 +29,7 @@ const searchReview = () => {
         onChange={handleSearch}
         defaultValue={searchParams.get('query')?.toString()}  
         placeholder="Search Title"
-        className='text-center text-black w-2/3'
+        className='text-center text-black w-2/4'
         >
         </input>
     )

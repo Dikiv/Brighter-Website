@@ -1,18 +1,12 @@
 import supabase from '../lib/utils'
 import ReviewImage from '../reviews/reviewImage'
 import { sortBy } from 'sort-by-typescript';
+import reviews from './reviews';
 
 
-const Reviewcard = async ({query,sort,order}:{query:string,sort:string,order:string}) => {
+const Reviewcard = async ({query,sort,order,Reviews}:{query:string,sort:string,order:string,Reviews:reviews}) => {
     
-    const { data: Reviews, error } = await supabase.from("Reviews").select("id, Title, Score, ReleaseYear, Genre");
-    
-
-    if (error) {
-        console.error("Error fetching reviews:", error.message);
-        return <p>Error loading reviews.</p>;
-    }
-    
+   
     if (!Reviews || Reviews.length === 0) {
         return <p>No reviews available.</p>;
     }

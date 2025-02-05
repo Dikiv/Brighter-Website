@@ -2,6 +2,8 @@ import { oswald } from '@/app/ui/fonts';
 import Reviewcard from './reviewCard';
 import SearchReview from './searchReview'
 import SortingTools from './sortingTools'
+import supabase from '../lib/utils'
+import FilterTools from './filterTools';
 
 const Page = async({
         searchParams,
@@ -14,6 +16,9 @@ const Page = async({
     const query = await resolved?.query ?? ''
     const sort = await resolved?.sort ?? 'ReleaseYear'
     const order = await resolved?.order ?? 'a'
+
+    const { data: Reviews, error } = await supabase.from("Reviews").select("id, Title, Score, ReleaseYear, Genre");
+        
     return (
         
     <div className="flex grow p-8 items-center justify-center flex-col">
@@ -28,13 +33,16 @@ const Page = async({
         <hr className="w-1/2 border-yellow-300 mb-4" />
 
         {/* Toolbar */}
-        <div className="border-x-2 border-yellow-300 w-2/3 bg-gray-900 shadow-md mt-4 mb-8">
-            <div className="flex border-b-2 border-yellow-300 justify-around items-center py-1">
-                <SearchReview/>
-            </div>
+        <div className="border-2 border-yellow-500 w-2/3 bg-gray-900 shadow-md mt-4 mb-8">
             <div className="flex justify-around items-center py-1">
+                <SearchReview/> 
+                <FilterTools
+                reviews={Reviews ?? []}
+                />
                 <SortingTools/>
+                
             </div>
+            
         </div>
         
         
@@ -43,6 +51,7 @@ const Page = async({
         query = {query}
         sort = {sort}
         order = {order}
+        Reviews={Reviews ?? []}
         />
         
     </div> 
