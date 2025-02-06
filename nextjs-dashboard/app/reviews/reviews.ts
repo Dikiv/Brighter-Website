@@ -1,11 +1,14 @@
 type reviews ={
    
         id: any;
-        Title: any;
-        Score: any;
-        ReleaseYear: any;
-        Genre: any;
+        title: any;
+        score: any;
+        releaseyear: any;
+        genres: {
+            genre: any;
+        }[];
    
-} [] 
+} []
+
 
 export default reviews

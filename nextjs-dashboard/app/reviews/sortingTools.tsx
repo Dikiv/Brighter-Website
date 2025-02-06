@@ -59,10 +59,10 @@ const sortingTools = () => {
                 dark:text-white dark:focus:ring-gray-500 dark:focus:border-yellow-500"
                 onChange={category => handleSelectCategory(category)}
             >
-                <option defaultValue='ReleaseYear' value='ReleaseYear'>Release Year</option>
-                <option value="Title">Title</option>
-                <option value="Genre">Genre</option>
-                <option value="Score">Score</option>
+                <option defaultValue='releaseyear' value='releaseyear'>Release Year</option>
+                <option value="title">Title</option>
+                <option value="genre">Genre</option>
+                <option value="score">Score</option>
             </select>
         
         </form >

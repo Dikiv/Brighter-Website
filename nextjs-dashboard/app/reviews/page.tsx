@@ -17,8 +17,23 @@ const Page = async({
     const sort = await resolved?.sort ?? 'ReleaseYear'
     const order = await resolved?.order ?? 'a'
 
-    const { data: Reviews, error } = await supabase.from("Reviews").select("id, Title, Score, ReleaseYear, Genre");
-        
+   
+        const { data: Reviews, error } = await supabase
+        .from("reviews")
+        .select(`
+          id, 
+          title, 
+          score, 
+          releaseyear, 
+          genres(
+            genre
+          )
+        `)
+        const {data: genreCategories} = await supabase
+        .from("genres")
+        .select(`genre`)
+
+    console.log(error?.message)
     return (
         
     <div className="flex grow p-8 items-center justify-center flex-col">
@@ -37,7 +52,7 @@ const Page = async({
             <div className="flex justify-around items-center py-1">
                 <SearchReview/> 
                 <FilterTools
-                reviews={Reviews ?? []}
+                genres={genreCategories ?? []}
                 />
                 <SortingTools/>
                 

@@ -12,9 +12,9 @@ const Reviewcard = async ({query,sort,order,Reviews}:{query:string,sort:string,o
     }
     
     const filtered = Array.isArray(Reviews) ? Reviews.filter((r) => { 
-      return typeof r?.Title === "string" &&
+      return typeof r?.title === "string" &&
       typeof query === "string" &&
-      (r.Title.toLowerCase().includes(query.toLowerCase()));
+      (r.title.toLowerCase().includes(query.toLowerCase()));
     }).sort(sortBy(sort)) : []
 
     if(order=='d'){
@@ -33,7 +33,7 @@ const Reviewcard = async ({query,sort,order,Reviews}:{query:string,sort:string,o
       className={`flex flex-col bg-gradient-to-b from-gray-800 to-black shadow-md 
         w-3/7 border-yellow-600 border mb-2  
         break-inside-avoid-column group`}
-       key={review.id + review.Title} 
+       key={review.id + review.title} 
       >
         
         <div className="relative">
@@ -47,10 +47,10 @@ const Reviewcard = async ({query,sort,order,Reviews}:{query:string,sort:string,o
         {/* Text Content */}
         <div className="absolute inset-0 flex flex-col justify-end p-4 
         transition-opacity duration-700 group-hover:opacity-0">
-        <h2 className="text-sm mb-2">{review.Genre}</h2>
-          <h1 className="text-2xl font-bold mb-4 break-words">{review.Title}</h1>
-          <h3 className="text-lg mb-2">{review.ReleaseYear}</h3>
-          <p className="text-4xl mb-2">{review.Score}/10</p>
+        <h2 className="text-sm mb-2">{review.genres.map(g => g.genre + ', ')}</h2>
+          <h1 className="text-2xl font-bold mb-4 break-words">{review.title}</h1>
+          <h3 className="text-lg mb-2">{review.releaseyear}</h3>
+          <p className="text-4xl mb-2">{review.score}/10</p>
         </div>
       </div>
 

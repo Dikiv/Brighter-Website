@@ -1,10 +1,11 @@
 'use client'
 import React, { useState } from 'react'
-import reviews from './reviews'
 
-const FilterTools = (reviews:{reviews:reviews}) => {
+const FilterTools = ({genres}:{genres:any[]}) => {
     const [isOpen, setIsOpen] = useState(false);
-    const genreCategories = Array.from(new Set(reviews.reviews.map(r=> r.Genre))) 
+    
+    console.log(genres.map(x=>x.genre))
+    console.log(genres.length)
     const i = 'xidx'
     
     return(
@@ -22,33 +23,33 @@ const FilterTools = (reviews:{reviews:reviews}) => {
         </svg>
       </button>
       {isOpen && (
-        <div className="absolute z-10 w-48 bg-white divide-y divide-gray-100 
+        <div className="grid absolute z-10 bg-white divide-y divide-gray-100 
          shadow-sm dark:bg-gray-700 dark:divide-gray-600 mt-2">
-          
-            {genreCategories.map( genre => ( 
-                <ul className="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">
+            <ul className="grid grid-cols-3 text-sm text-gray-700 dark:text-gray-200 ">
+
+            {genres.map( genre => ( 
                 <li>
-                <div className="flex items-center">
+                
+                <div className="items-center hover:bg-gray-400" onClick={_=>document.getElementById(i.concat(String(genre)))}>
                   <input
-                    id={i.concat(genre)}
+                    id={i.concat(String(genre))}
                     type="checkbox"
                     defaultChecked
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300
+                    className=" w-4 h-4 mb-4 ms-2 mt-4 text-blue-600 bg-gray-100 border-gray-300
                      rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 
                      dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500
                      "
                   />
-                  
                   <label htmlFor={i.concat(String(genre))} className="ms-2 text-sm font-medium 
                   text-gray-900 dark:text-gray-300">
-                    {genre}
+                    {genre.genre}
                   </label>
                 </div>
               </li>
-              </ul>
+              
             ))}
             
-
+            </ul>
        
         </div>
       )}
