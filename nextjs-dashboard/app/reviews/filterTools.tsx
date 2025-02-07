@@ -16,14 +16,10 @@ const FilterTools = ({genres}:{genres:any[]}) => {
       const params = new URLSearchParams(searchParams);
       const genreId = genre.id
       const ele = document.getElementById(id) as HTMLInputElement
-    
+      
       if(ele && ele.checked){
-        ele.checked = false
-        excludedGenres.push(genreId)
         params.append("exclude",genreId)
-
       }else if (!ele.checked){
-        ele.checked = true
         params.delete("exclude",genreId)
       }
       replace(`${pathname}?${params.toString()}`)
@@ -32,7 +28,6 @@ const FilterTools = ({genres}:{genres:any[]}) => {
     function controlCheck(id:string){
       const params = new URLSearchParams(searchParams);      
       if(params.getAll("exclude").includes(id)){
-        console.log("excluded" + id)
         return false
       }
       return true
@@ -55,19 +50,20 @@ const FilterTools = ({genres}:{genres:any[]}) => {
         </svg>
       </button>
       {isOpen && (
-        <div className="grid absolute z-10 bg-white divide-y divide-gray-100 
+        <div  className="grid absolute z-10 bg-white divide-y divide-gray-100 
          shadow-sm dark:bg-gray-700 dark:divide-gray-600 mt-2">
             <ul className="grid grid-cols-3 text-sm text-gray-700 dark:text-gray-200 ">
 
-            {genres.map( genre => controlCheck(genre.id) ? (
-                
+            {genres.map( genre =>  (
                 <li key={genre.id}>
-                <div className="items-center hover:bg-gray-400" >
+                <div className="items-center hover:bg-gray-400" onClick={_=>checking(i.concat(String(genre.id)),genre)}>
                   <input
                     id={i.concat(String(genre.id))}
                     type="checkbox"
-                    checked={controlCheck(i.concat(String(genre.id)))}
-                    onChange={(e) => (e.target.checked)}
+                    checked={controlCheck(String(genre.id))}
+                    onChange={_=>checking(i.concat(String(genre.id)),genre)}
+                    onClick={_=>checking(i.concat(String(genre.id)),genre)}
+                    
                     className=" w-4 h-4 mb-4 ms-2 mt-4 text-blue-600 bg-gray-100 border-gray-300
                      rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 
                      dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500
@@ -79,12 +75,9 @@ const FilterTools = ({genres}:{genres:any[]}) => {
                   </label>
                   
                   </div>
-                
-                
-                
               </li>
               
-            ):'' )}
+            ))}
             
             </ul>
        
