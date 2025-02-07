@@ -1,21 +1,22 @@
-import supabase from '../lib/utils'
 import ReviewImage from '../reviews/reviewImage'
 import { sortBy } from 'sort-by-typescript';
 import reviews from './reviews';
 
 
-const Reviewcard = async ({query,sort,order,Reviews}:{query:string,sort:string,order:string,Reviews:reviews}) => {
+const Reviewcard = async ({query,sort,order,Reviews,exclude}:{query:string,sort:string,order:string,Reviews:reviews,exclude:string[]}) => {
     
    
     if (!Reviews || Reviews.length === 0) {
         return <p>No reviews available.</p>;
     }
-    
+
     const filtered = Array.isArray(Reviews) ? Reviews.filter((r) => { 
       return typeof r?.title === "string" &&
       typeof query === "string" &&
-      (r.title.toLowerCase().includes(query.toLowerCase()));
+      (r.title.toLowerCase().includes(query.toLowerCase())) && 
+      !r.genres.some(x=>exclude.includes(String(x.id))) ;
     }).sort(sortBy(sort)) : []
+
 
     if(order=='d'){
       filtered.reverse()

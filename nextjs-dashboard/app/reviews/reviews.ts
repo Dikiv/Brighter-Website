@@ -5,7 +5,11 @@ type reviews ={
         score: any;
         releaseyear: any;
         genres: {
-            genre: any;
+            id: any;
+            genre: {
+                    id: number;
+                    genre: string;
+                }
         }[];
    
 } []

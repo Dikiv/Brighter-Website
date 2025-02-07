@@ -8,7 +8,7 @@ import FilterTools from './filterTools';
 const Page = async({
         searchParams,
     }: {
-        searchParams?: Promise<{ query?: string, sort?:string, order?:string }>
+        searchParams?: Promise<{ query?: string, sort?:string, order?:string, exclude?:string[]}>
 
     })=>{    
 
@@ -16,7 +16,9 @@ const Page = async({
     const query = await resolved?.query ?? ''
     const sort = await resolved?.sort ?? 'ReleaseYear'
     const order = await resolved?.order ?? 'a'
+    const exclude = await resolved?.exclude ?? []
 
+    
    
         const { data: Reviews, error } = await supabase
         .from("reviews")
@@ -26,14 +28,14 @@ const Page = async({
           score, 
           releaseyear, 
           genres(
+            id,
             genre
           )
         `)
         const {data: genreCategories} = await supabase
         .from("genres")
-        .select(`genre`)
+        .select(`id, genre`)
 
-    console.log(error?.message)
     return (
         
     <div className="flex grow p-8 items-center justify-center flex-col">
@@ -67,6 +69,7 @@ const Page = async({
         sort = {sort}
         order = {order}
         Reviews={Reviews ?? []}
+        exclude={exclude}
         />
         
     </div> 
