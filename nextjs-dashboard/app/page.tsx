@@ -6,7 +6,7 @@ export default function Page() {
     
     <main className="flex h-[85dvh] flex-col ">
       
-      <div className="flex justify-center grow p-8">
+      <div className="flex justify-center  p-8">
         <Greeter/>
       </div>
 
