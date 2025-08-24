@@ -1,8 +1,10 @@
 import { oswald } from '@/app/ui/fonts';
+import { Interaction } from '@/app/ui/dashboard/interaction'
 
 export function Greeter() {
-    const chad = '/img/americano.jpg'; // Correct path for Next.js public folder
+    const chad = '/img/me4.png'; 
     
+        
     return (
       
         <div className="flex grow items-center justify-center flex-col">
@@ -20,27 +22,21 @@ export function Greeter() {
                     >
                     
                     {/* Text Section */}
-                    <div className="flex-1 p-6 flex flex-col justify-between">
+                    <div className="flex-1 p-2 flex flex-col justify-between">
                         
                         <div className="flex-1 flex flex-col justify-center space-y-4">
 
                         <hr className=" border-yellow-300 " />
-
-
-                        <h2 className="text-2xl md:text-xl lg:text-2xl text-yellow-300 text-gray-300 text-center">
-                            Powered by caffeine potions, I conjure clean code from chaos and alterate configurations
-    
-                        </h2>
-                        <hr className="border-yellow-300 mb-8 " />
-
-
+                        
+                        <Interaction/>
+                        
                         </div>
                     </div>
 
                     {/* Image Section */}
-                    <div className="w-full md:w-1/3">
+                    <div className="w-full md:w-1/4">
                         <img
-                        src="/img/americano.jpg"
+                        src={chad}
                         alt="About me illustration"
                         className="w-full h-full object-cover"
                         />
