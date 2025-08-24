@@ -8,7 +8,7 @@ const reply1 = "Hi, I'm Christopher Ryder, a problemsolver and gaming enthusiast
 const reply2 = "This website is my 'Domain' or a portfolio if you will. You can discover projects I have worked on, or other topics I'm passionate about."
 const reply3 = "lol"
 
-export const LoadingText = ({replyS}:Integer) => {
+export const LoadingText = ({replyS = 0}) => {
     
     const { ref } = useScramble({
     text: replyS === 1 ? reply2 :

@@ -5,7 +5,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 
-export function Button({ replyS, onClick, text, loaded  }: ButtonProps) {
+export function Button({ onClick=()=>{}, loaded=true, text = "huh", replyS = 0}) {
     //const [loaded, setLoaded] = useState(false);
 
   return (
