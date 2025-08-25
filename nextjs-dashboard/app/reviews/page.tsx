@@ -1,16 +1,40 @@
 import { oswald } from '@/app/ui/fonts';
 import Reviewcard from './reviewCard';
 import SearchReview from './searchReview'
+import SortingTools from './sortingTools'
+import supabase from '../lib/utils'
+import FilterTools from './filterTools';
 
 const Page = async({
         searchParams,
     }: {
-        searchParams?: Promise<{ query?: string }>
+        searchParams?: Promise<{ query?: string, sort?:string, order?:string, exclude?:string[]}>
 
     })=>{    
 
     const resolved = await searchParams
     const query = await resolved?.query ?? ''
+    const sort = await resolved?.sort ?? 'ReleaseYear'
+    const order = await resolved?.order ?? 'a'
+    const exclude = await resolved?.exclude ?? []
+
+    
+   
+        const { data: Reviews, error } = await supabase
+        .from("reviews")
+        .select(`
+          id, 
+          title, 
+          score, 
+          releaseyear, 
+          genres(
+            id,
+            genre
+          )
+        `)
+        const {data: genreCategories} = await supabase
+        .from("genres")
+        .select(`id, genre`)
 
     return (
         
@@ -26,21 +50,16 @@ const Page = async({
         <hr className="w-1/2 border-yellow-300 mb-4" />
 
         {/* Toolbar */}
-        <div className="border-x-2 border-yellow-300 w-2/3 bg-gray-900 shadow-md mt-4">
-            <div className="flex border-b-2 border-yellow-300 justify-around items-center py-1">
-                <SearchReview/>
-            </div>
+        <div className="border-2 border-yellow-500 w-2/3 bg-gray-900 shadow-md mt-4 mb-8">
             <div className="flex justify-around items-center py-1">
-                <button className="bg-yellow-300 text-gray-800 px-4 py-2 hover:bg-yellow-400">
-                    X
-                </button>
-                <button className="bg-yellow-300 text-gray-800 px-4 py-2 hover:bg-yellow-400">
-                    Y
-                </button>
-                <button className="bg-yellow-300 text-gray-800 px-4 py-2 hover:bg-yellow-400">
-                    Z
-                </button>
+                <SearchReview/> 
+                <FilterTools
+                genres={genreCategories ?? []}
+                />
+                <SortingTools/>
+                
             </div>
+            
         </div>
         
         
@@ -49,8 +68,12 @@ const Page = async({
         gap-2 mt-8 w-3/4 break-before-column">
         <Reviewcard
         query = {query}
+        sort = {sort}
+        order = {order}
+        Reviews={Reviews ?? []}
+        exclude={exclude}
         />
-        </div>
+        
     </div> 
     );
 }
