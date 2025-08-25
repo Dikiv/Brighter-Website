@@ -1,3 +1,4 @@
+import supabase from '../lib/utils'
 import ReviewImage from '../reviews/reviewImage'
 import { sortBy } from 'sort-by-typescript';
 import reviews from './reviews';
@@ -34,7 +35,8 @@ const Reviewcard = async ({query,sort,order,Reviews,exclude}:{query:string,sort:
       className={`flex flex-col bg-gradient-to-b from-gray-800 to-black shadow-md 
         w-3/7 border-yellow-600 border mb-2  
         break-inside-avoid-column group`}
-       key={review.id + review.title} 
+
+       key={review.id + review.Title} 
       >
         
         <div className="relative">
@@ -52,6 +54,7 @@ const Reviewcard = async ({query,sort,order,Reviews,exclude}:{query:string,sort:
           <h1 className="text-2xl font-bold mb-4 break-words">{review.title}</h1>
           <h3 className="text-lg mb-2">{review.releaseyear}</h3>
           <p className="text-4xl mb-2">{review.score}/10</p>
+
         </div>
       </div>
 
