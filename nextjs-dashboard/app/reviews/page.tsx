@@ -68,7 +68,7 @@ const Page = async({
         query = {query}
         sort = {sort}
         order = {order}
-        Reviews={Reviews ?? []}
+        Reviews={Reviews?.sort(() => Math.random() - 0.5) ?? []}
         exclude={exclude}
         />
         
