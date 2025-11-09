@@ -18,8 +18,6 @@ const Page = async({
     const order = await resolved?.order ?? 'a'
     const exclude = await resolved?.exclude ?? []
 
-    
-   
         const { data: Reviews, error } = await supabase
         .from("reviews")
         .select(`
@@ -38,7 +36,7 @@ const Page = async({
 
     return (
         
-    <div className="flex grow p-8 items-center justify-center flex-col">
+    <div className="flex grow p-8 items-center justify-center z-0 flex-col">
         <h1 className={`text-center text-yellow-300 text-6xl leading-tight mb-4`}>
             My Reviews
         </h1>

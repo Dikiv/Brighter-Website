@@ -1,5 +1,4 @@
 import '@/app/ui/global.css'
-import { inter } from '@/app/ui/fonts';
 import {Header} from '@/app/ui/dashboard/header'
 import {Footer} from '@/app/ui/dashboard/footer'
 import { oswald } from '@/app/ui/fonts';
